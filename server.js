@@ -23,6 +23,10 @@ app.listen(port, () => {
   console.log(`Covid detection service listening at http://localhost:${port}`);
 });
 
+app.get("/hello", (req, res) => {
+  return res.status(200).send("Hello World!");
+});
+
 app.post("/coviddetection", async (req, res) => {
   if (!serviceClient) {
     serviceClient = await getServiceClient();
