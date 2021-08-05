@@ -13,7 +13,7 @@ let coughUrl;
 let breathUrl;
 
 const app = express();
-const port = 8300;
+const port = 8030;
 
 const status = { SUCCESS: "SUCCESS", FAILURE: "FAILURE" };
 
