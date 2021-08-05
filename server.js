@@ -45,8 +45,8 @@ app.post("/coviddetection", async (req, res) => {
   const createConcurrencyToken = async () => {
     try {
       tokenCreationInProgress = true;
-      const { concurrencyToken, channelId } =
-        await serviceClient.getConcurrencyTokenAndChannelId();
+      const result = await serviceClient.getConcurrencyTokenAndChannelId();
+      const { concurrencyToken, channelId } = result;
       tokenCreationInProgress = false;
       localConcurrencyToken = concurrencyToken;
       localChannelId = channelId;
@@ -109,7 +109,7 @@ app.post("/coviddetection", async (req, res) => {
 
     coughUrl = inputs.coughUrl;
     breathUrl = inputs.breathUrl;
-    vowelSoundUrl = inputs.vowelSoundUrl;
+    vowelSoundUrl = inputs.vowelUrl;
 
     const result = await run(!Boolean(localConcurrencyToken));
 

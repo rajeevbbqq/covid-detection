@@ -11,7 +11,7 @@ const sdk = new SnetSDK(config);
 const orgId = "rejuve";
 const serviceId = "covid-detection";
 const groupName = "default_group";
-const paymentStrategy = new DefaultPaymentStrategy(100);
+const paymentStrategy = new DefaultPaymentStrategy(20);
 let tokenToMakeFreeCall = process.env.FREE_CALL_TOKEN
   ? process.env.FREE_CALL_TOKEN.toUpperCase()
   : "";
@@ -62,6 +62,11 @@ const exampleService = async (
     if (!serviceClient) {
       serviceClient = await getServiceClient();
     }
+
+    console.log(breathUrl, "breathUrl");
+    console.log(vowelSoundUrl, "vowelSoundUrl");
+    console.log(userId, "userId");
+    console.log(submissionId, "submissionId");
 
     const request = new messages.Audio();
 
